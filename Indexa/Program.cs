@@ -6,6 +6,7 @@ namespace Indexa
 {
     class Program
     {
+        public enum Direction { Up, Down }
         static void Main(string[] args)
         {
             var gpio = new GpioController();
@@ -13,8 +14,12 @@ namespace Indexa
             // readPin function
             bool readPin(int p) => gpio.Read(p) == PinValue.High;
 
+            const int closePin = 2;
+            const int openPin = 3;
             const int indexPin = 4;
             const int pulsePin = 17;
+            const int stopPin = 27;
+
             int pulseCounter = 0;
             //int cycleCounter = 0;
             int state = 0;
